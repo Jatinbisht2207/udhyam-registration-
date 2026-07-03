@@ -1,0 +1,405 @@
+Create a production-grade PostgreSQL database layer for the Udyam Registration Assignment.
+
+### Tech Stack
+
+- PostgreSQL
+- Prisma ORM
+- Prisma Migrate
+- Prisma Client
+- dotenv
+
+--------------------------------------------------
+
+### Goal
+
+Design and implement a production-ready relational database for the first two steps of the Udyam Registration Portal.
+
+The database should store all registration information collected from:
+
+1. Aadhaar Verification
+2. OTP Verification
+3. PAN Verification
+
+The database should only support the first two steps of the Udyam Registration process.
+
+Do not design tables for later registration steps unless required for future extensibility.
+
+The generated Prisma schema should integrate directly with the Express backend without requiring manual modifications.
+
+Do NOT generate backend controllers, frontend code, APIs, Docker, or deployment.
+
+Only generate the database layer.
+
+--------------------------------------------------
+
+### Folder Structure
+
+backend/
+
+    prisma/
+
+        schema.prisma
+
+        migrations/
+
+        seed.js
+
+    src/
+
+        config/
+
+            db.config.js
+
+    .env.example
+
+--------------------------------------------------
+
+### Database Requirements
+
+Use PostgreSQL.
+
+Use Prisma ORM.
+
+Generate:
+
+- schema.prisma
+- migration files
+- Prisma Client configuration
+- seed script
+- connection configuration
+
+--------------------------------------------------
+
+### Data Model
+
+Create a Registration table.
+
+Fields
+
+- id
+- aadhaarNumber
+- entrepreneurName
+- otpVerified
+- otpVerifiedAt
+- panNumber
+- panType
+- createdAt
+- updatedAt
+
+--------------------------------------------------
+
+### Constraints
+
+id
+
+- UUID
+- Primary Key
+
+aadhaarNumber
+
+- Required
+- Unique
+- VARCHAR(12)
+
+entrepreneurName
+
+- Required
+
+otpVerified
+
+- Boolean
+- Default false
+
+otpVerifiedAt
+
+- Nullable Timestamp
+
+panNumber
+
+- Required
+- Unique
+
+panType
+
+- Required
+
+createdAt
+
+- Automatically generated timestamp
+
+updatedAt
+
+- Automatically updated timestamp
+
+--------------------------------------------------
+
+### Database Design Rules
+
+1.
+
+Normalize the schema.
+
+2.
+
+Use proper column types.
+
+3.
+
+Create indexes wherever appropriate.
+
+4.
+
+Use constraints to maintain data integrity.
+
+5.
+
+Avoid duplicated data.
+
+6.
+
+Design the schema so additional registration steps and fields can be added later without major schema redesign.
+
+7.
+
+Use UUID instead of auto increment integers.
+
+--------------------------------------------------
+
+### Indexes
+
+Create indexes on
+
+- aadhaarNumber
+- panNumber
+- createdAt
+
+Use indexes only where they provide practical query performance improvements.
+
+Avoid unnecessary indexes.
+
+--------------------------------------------------
+
+### Prisma Requirements
+
+Generate
+
+schema.prisma
+
+Datasource
+
+Generator
+
+Models
+
+Indexes
+
+Constraints
+
+Do not generate unnecessary tables or relations.
+
+Design the schema so future relations can be added easily if required.
+
+--------------------------------------------------
+
+### Migration
+
+Generate production-ready migration files.
+
+Migration should be executable using
+
+npx prisma migrate dev
+
+--------------------------------------------------
+
+### Seed Script
+
+Create seed.js
+
+Seed one valid sample registration using realistic sample values.
+
+Avoid duplicate seed data if the script is executed multiple times.
+
+Do NOT seed fake production data.
+
+--------------------------------------------------
+
+### Connection Configuration
+
+Create reusable database connection configuration.
+
+Read all values from environment variables.
+
+Do not hardcode
+
+Host
+
+Port
+
+Username
+
+Password
+
+Database Name
+
+Do not hardcode any database credentials.
+
+--------------------------------------------------
+
+### Environment Variables
+
+Generate .env.example
+
+DATABASE_URL="postgresql://username:password@localhost:5432/udyam"
+
+--------------------------------------------------
+
+### Coding Rules
+
+1.
+
+Follow Prisma best practices.
+
+2.
+
+Keep schema readable.
+
+3.
+
+Proper naming conventions.
+
+4.
+
+Singular model names.
+
+5.
+
+camelCase fields.
+
+6.
+
+Never duplicate fields.
+
+7.
+
+Use Prisma defaults wherever possible.
+
+8.
+
+Future-proof the schema for additional registration steps.
+
+--------------------------------------------------
+
+### package.json Scripts
+
+Include
+
+npm run prisma:generate
+
+npm run prisma:migrate
+
+npm run prisma:studio
+
+npm run prisma:seed
+
+--------------------------------------------------
+
+### Deliverables
+
+Generate
+
+- schema.prisma
+- migration files
+- Prisma Client configuration
+- db.config.js
+- seed.js
+- .env.example
+- README.md
+
+The generated database layer should work successfully using
+
+npm install
+
+cp .env.example .env
+
+npx prisma generate
+
+npx prisma migrate dev
+
+npm run prisma:seed
+
+without requiring manual code changes.
+
+--------------------------------------------------
+
+### README
+
+Include
+
+- Installation
+- Database Architecture
+- Prisma Setup
+- Migration Commands
+- Seed Commands
+- Environment Variables
+- Folder Structure
+- Troubleshooting
+
+--------------------------------------------------
+
+General Rules
+
+1.
+
+Think like a Senior Database Engineer.
+
+2.
+
+Follow production-grade database design.
+
+3.
+
+Generate complete working code.
+
+4.
+
+Do not modify backend business logic.
+
+5.
+
+Do not generate APIs.
+
+6.
+
+Do not generate frontend.
+
+7.
+
+Do not generate authentication.
+
+8.
+
+Do not generate testing.
+
+9.
+
+Do not generate Docker or deployment.
+
+10.
+
+Only generate the database module.
+
+11.
+
+Keep the schema simple, normalized, and production-ready.
+
+12.
+
+Do not invent tables beyond the assignment requirements.
+
+13.
+
+Explain why every table, constraint, and index exists.
+
+14.
+
+After completing the database module, stop and wait for my confirmation.

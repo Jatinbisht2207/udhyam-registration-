@@ -1,0 +1,530 @@
+Create a production-grade testing suite for the Udyam Registration Assignment.
+
+### Tech Stack
+
+- Jest
+- Supertest
+- React Testing Library
+- @testing-library/jest-dom
+- @testing-library/user-event
+- Prisma Test Database
+- dotenv
+
+--------------------------------------------------
+
+### Goal
+
+Design and implement a complete testing suite for the Udyam Registration Assignment.
+
+The testing suite should validate the existing frontend, backend, and database modules without modifying application logic.
+
+The testing suite should integrate with the existing frontend, backend, and database modules without requiring changes to their implementation.
+
+The tests should ensure the application behaves correctly under valid, invalid, boundary, and failure scenarios.
+
+Do not generate frontend components, backend business logic, database schema, Docker, or deployment configuration.
+
+Only generate testing-related files and configuration.
+
+--------------------------------------------------
+
+### Folder Structure
+
+project/
+
+    frontend/
+
+        src/
+
+        tests/
+
+            components/
+
+            pages/
+
+            validation/
+
+            setupTests.js
+
+    backend/
+
+        tests/
+
+            unit/
+
+            integration/
+
+            api/
+
+            fixtures/
+
+            helpers/
+
+            setup.js
+
+        jest.config.js
+
+    README.md
+
+--------------------------------------------------
+
+### Frontend Testing
+
+Use
+
+- React Testing Library
+- Jest
+
+Test
+
+Components
+
+Pages
+
+Forms
+
+Validation
+
+Loading states
+
+Error states
+
+Success states
+
+Accessibility
+
+Responsive component behavior where practical
+
+--------------------------------------------------
+
+### Backend Testing
+
+Use
+
+- Jest
+- Supertest
+
+Test
+
+Controllers
+
+Routes
+
+Validation
+
+Middleware
+
+Response format
+
+Error handling
+
+Health endpoint
+
+Registration endpoints
+
+--------------------------------------------------
+
+### Database Testing
+
+Use a separate PostgreSQL test database configured through environment variables.
+
+Test
+
+- Database connection
+- CRUD operations
+- Constraints
+- Unique fields
+- Required fields
+- Index behavior (where practical)
+
+Do not execute tests against development or production databases.
+
+--------------------------------------------------
+
+### API Test Coverage
+
+Test
+
+GET
+
+/health
+
+Verify
+
+- HTTP 200
+- Response format
+- Timestamp
+- Environment
+- Uptime
+
+--------------------------------------------------
+
+POST
+
+/api/v1/registration/aadhaar
+
+Test
+
+- Valid Aadhaar
+- Invalid Aadhaar
+- Empty Aadhaar
+- Missing Aadhaar
+- Incorrect length
+- Non-numeric values
+
+--------------------------------------------------
+
+POST
+
+/api/v1/registration/otp
+
+Test
+
+- Valid OTP
+- Invalid OTP
+- Empty OTP
+- Missing OTP
+- Incorrect length
+
+--------------------------------------------------
+
+POST
+
+/api/v1/registration/pan
+
+Test
+
+- Valid PAN
+- Invalid PAN
+- Empty PAN
+- Missing PAN
+- Incorrect format
+
+--------------------------------------------------
+
+POST
+
+/api/v1/registration/submit
+
+Test
+
+- Successful submission
+- Missing required fields
+- Duplicate Aadhaar
+- Duplicate PAN
+- Invalid payload
+- Database failure handling
+
+--------------------------------------------------
+
+### Frontend Validation Testing
+
+Test
+
+Aadhaar
+
+- Valid
+- Invalid
+- Empty
+- Boundary values
+
+OTP
+
+- Valid
+- Invalid
+- Empty
+- Boundary values
+
+PAN
+
+Regex
+
+[A-Z]{5}[0-9]{4}[A-Z]
+
+Test
+
+- Valid format
+- Lowercase input
+- Invalid characters
+- Short input
+- Long input
+
+--------------------------------------------------
+
+### Component Testing
+
+Verify
+
+- Form renders correctly
+- Dynamic schema rendering
+- Required fields
+- Buttons
+- Labels
+- Progress bar
+- Error messages
+- Loading spinner
+- Disabled submit button
+- Toast notifications
+
+Verify forms are rendered correctly from the generated schema.json.
+
+Do not assume hardcoded field names.
+
+--------------------------------------------------
+
+### Integration Testing
+
+Verify
+
+Frontend
+
+↓
+
+Backend
+
+↓
+
+Database
+
+Confirm
+
+- Successful end-to-end submission
+- Validation failures
+- Error propagation
+- Database persistence
+
+--------------------------------------------------
+
+### Error Handling Tests
+
+Verify
+
+400
+
+Validation errors
+
+404
+
+Route not found
+
+409
+
+Duplicate entries
+
+500
+
+Internal server errors
+
+--------------------------------------------------
+
+### Response Validation
+
+Verify every API returns
+
+Success
+
+{
+    "success": true,
+    "message": "...",
+    "data": {}
+}
+
+Error
+
+{
+    "success": false,
+    "message": "...",
+    "errors": []
+}
+
+--------------------------------------------------
+
+### Test Data
+
+Create reusable fixtures.
+
+Generate
+
+- Valid Aadhaar
+- Invalid Aadhaar
+- Valid OTP
+- Invalid OTP
+- Valid PAN
+- Invalid PAN
+
+Do not hardcode duplicate test data across multiple files.
+
+--------------------------------------------------
+
+### Mocking
+
+Mock only external dependencies.
+
+Examples
+
+- External APIs
+- Logger
+- Environment variables
+
+Do not mock the application's business logic unless absolutely necessary.
+
+Do not mock database operations unless a unit test specifically requires isolation.
+
+Prefer integration tests for repository and database behavior.
+
+--------------------------------------------------
+
+### Coverage
+
+Generate coverage reports.
+
+Generate human-readable HTML coverage reports.
+
+Target
+
+- Statements ≥ 90%
+- Functions ≥ 90%
+- Branches ≥ 85%
+- Lines ≥ 90%
+
+--------------------------------------------------
+
+### package.json
+
+Include scripts
+
+npm test
+
+npm run test:watch
+
+npm run test:coverage
+
+npm run test:frontend
+
+npm run test:backend
+
+npm run test:unit
+
+npm run test:integration
+
+--------------------------------------------------
+
+### Deliverables
+
+Generate
+
+- Jest configuration
+- React Testing Library setup
+- Supertest configuration
+- Test helpers
+- Test fixtures
+- Integration tests
+- API tests
+- Validation tests
+- Component tests
+- Coverage configuration
+- README.md
+
+Generate all configuration files required to execute the testing suite without manual setup.
+
+The testing suite should run successfully using
+
+npm install
+
+npm test
+
+npm run test:coverage
+
+without requiring manual code changes.
+
+--------------------------------------------------
+
+### README
+
+Include
+
+- Installation
+- Testing Architecture
+- Running Tests
+- Coverage Reports
+- Coverage Goals
+- Test Folder Structure
+- Writing New Tests
+- Test Database Configuration
+- Troubleshooting
+
+--------------------------------------------------
+
+General Rules
+
+1.
+
+Think like a Senior QA Automation Engineer.
+
+2.
+
+Follow production-grade testing practices.
+
+3.
+
+Generate complete working tests.
+
+4.
+
+Do not modify application logic.
+
+5.
+
+Do not modify frontend or backend business logic.
+
+6.
+
+Do not modify database schema.
+
+7.
+
+Keep tests isolated and repeatable.
+
+8.
+
+Avoid flaky tests.
+
+9.
+
+Use descriptive test names.
+
+10.
+
+Keep fixtures reusable.
+
+11.
+
+Follow Arrange-Act-Assert (AAA) testing pattern.
+
+12.
+
+Clean up test data after execution.
+
+13.
+
+Do not generate Docker or deployment code.
+
+14.
+
+Only generate testing configuration and test files.
+
+15.
+
+Do not invent test cases for features outside the assignment.
+
+16.
+
+Generate tests only for implemented functionality.
+
+17.
+
+Explain why every test suite exists.
+
+18.
+
+After completing the testing module, stop and wait for my confirmation.

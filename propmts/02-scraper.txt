@@ -1,0 +1,241 @@
+Create a production-grade web scraping module in JavaScript.
+
+### Tech Stack
+
+- Node.js >= 20
+- Puppeteer
+- Cheerio (if required)
+- fs/promises
+- Prettier
+- ESLint
+
+### Goal
+
+Build a scraper that extracts the complete UI structure of the first two steps of the Udyam Registration Portal.
+
+Website:
+https://udyamregistration.gov.in/UdyamRegistration.aspx
+
+The scraper must only scrape:
+
+1. Aadhaar Verification
+2. OTP Verification
+3. PAN Verification
+
+Do NOT scrape anything beyond Step 2.
+
+--------------------------------------------
+
+### Folder Structure
+
+scraper/
+
+    package.json
+
+    src/
+
+        config/
+
+        constants/
+
+        utils/
+
+            logger.js
+
+            file.util.js
+
+        scraper/
+
+            browser.js
+            extractor.js
+            parser.js
+            schema.builder.js
+
+        output/
+
+            schema.json
+            raw.html
+
+        index.js
+
+--------------------------------------------
+
+### Responsibilities
+
+browser.js
+
+- Launch Puppeteer
+- Open browser
+- Navigate to website
+- Export browser instance
+
+extractor.js
+
+- Collect complete HTML
+- Save raw HTML
+- Handle waits
+- Handle dynamic loading
+
+parser.js
+
+Extract
+
+- labels
+- textboxes
+- radio buttons
+- checkboxes
+- dropdowns
+- buttons
+- placeholders
+- ids
+- names
+- required fields
+- validation attributes
+- maxlength
+- minlength
+- regex pattern
+- default values
+- tagName
+- inputType
+- class
+- disabled
+- readonly
+- autocomplete
+- aria-label
+- aria-describedby
+
+schema.builder.js
+
+Convert extracted information into a reusable JSON schema.
+
+--------------------------------------------
+
+### JSON Format
+
+Create schema.json like
+
+{
+  "steps": [
+    {
+      "step": 1,
+      "title": "Aadhaar Verification",
+      "fields": [
+        {
+          "label": "",
+          "name": "",
+          "type": "",
+          "required": true,
+          "placeholder": "",
+          "validation": {
+            "pattern": "",
+            "maxlength": "",
+            "minlength": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+
+--------------------------------------------
+
+### Requirements
+
+1. Modular architecture.
+
+2. No duplicate code.
+
+3. Functional programming.
+
+4. Create reusable utility functions.
+
+5. Use async/await everywhere.
+
+6. Proper try/catch handling.
+
+7. Create a logger utility.
+
+8. Never use console.log directly.
+
+9. Save:
+
+- raw.html
+- schema.json
+
+10. Add comments where necessary.
+
+11. Make scraper configurable.
+
+12. Export functions cleanly.
+
+13. Handle dynamic page loading.
+
+14. Do not hardcode field names.
+
+15. The scraper should automatically detect input elements.
+
+16. Use explicit waits.
+
+17. Avoid arbitrary sleep() calls.
+
+18. Wait for selectors or network idle wherever possible.
+
+19. Only extract information actually present in the DOM.
+
+20. Do not invent labels, validation rules, or field names.
+
+21. If a property cannot be determined, set it to null.
+
+22. Ignore hidden ASP.NET framework fields such as __VIEWSTATE, __EVENTVALIDATION, __EVENTTARGET unless explicitly requested.
+
+23. Do not bypass OTP verification.
+
+24. Do not automate Aadhaar verification.
+
+25. Only extract the UI structure of Step 1 and Step 2.
+
+26. If OTP prevents further navigation, extract only the visible UI and available DOM elements.
+
+--------------------------------------------
+
+### package.json
+
+Include scripts:
+
+- npm run scrape
+- npm run lint
+- npm run format
+
+--------------------------------------------
+
+### Deliverables
+
+Generate:
+
+- package.json
+- Complete folder structure
+- All source files
+- Working scraper
+- schema.json
+- raw.html
+- README.md
+
+The scraper must execute successfully using:
+
+npm install
+
+npm run scrape
+
+and generate:
+
+- output/raw.html
+- output/schema.json
+
+--------------------------------------------
+
+### Instructions
+
+- Build only this scraper module.
+- Do not generate frontend, backend, database, testing, or deployment code.
+- Ensure the code is production-ready, modular, and maintainable.
+- After completing the scraper, stop and wait for my confirmation.

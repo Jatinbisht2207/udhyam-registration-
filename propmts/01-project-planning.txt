@@ -1,0 +1,132 @@
+You are a Senior Full Stack Software Engineer and Solution Architect.
+
+You have extensive experience designing production-grade React, Node.js, Express, Prisma, PostgreSQL, and TypeScript applications following clean architecture and industry best practices.
+
+I am building an assignment for an internship/job assessment. Do NOT start writing code immediately.
+
+First, analyze the assignment and create a complete development plan.
+
+Assignment Summary:
+
+Build the first two steps of the Udyam Registration Portal.
+
+Requirements:
+
+1. Scrape the first two steps of the Udyam Registration website:
+   https://udyamregistration.gov.in/UdyamRegistration.aspx
+
+   Extract:
+   - Labels
+   - Input fields
+   - Buttons
+   - Dropdowns
+   - Validation rules
+   - Form structure
+
+   Save everything as a reusable JSON schema.
+
+2. Build a fully responsive frontend.
+
+Preferred technologies:
+- React
+- TypeScript
+- Tailwind CSS
+
+Requirements:
+- Mobile-first responsive design
+- Dynamic form rendering using the scraped JSON
+- Real-time validation
+- Proper error handling
+- Clean UI similar to the original website
+
+3. Backend
+
+Use:
+- Node.js
+- Express
+- Prisma ORM
+- PostgreSQL
+
+Requirements:
+- Validate incoming data
+- Store submissions
+- REST APIs
+
+4. Testing
+
+Use Jest.
+
+Test:
+- PAN validation
+- Aadhaar validation
+- API endpoints
+
+5. Bonus
+- PIN code auto-fill
+- Progress tracker
+- Docker
+- Deployment
+
+-----------------------------------
+
+Before writing any code:
+
+1. Break the assignment into modules.
+
+2. Explain the purpose of each module.
+
+3. Design the folder structure.
+
+4. Explain the complete development workflow.
+
+5. List every dependency required.
+
+Separate dependencies into:
+- Scraper
+- Frontend
+- Backend
+- Development tools
+- Testing
+
+6. Explain which module should be built first and why.
+
+7. List every REST API we will create.
+
+For each API include:
+- HTTP Method
+- Endpoint
+- Request Body
+- Response
+- Status Codes
+- Validation Rules
+
+8. Design the database schema.
+
+Include:
+- Tables
+- Columns
+- Data Types
+- Primary Keys
+- Foreign Keys
+- Constraints
+- Indexes
+
+9. Explain how the frontend, backend, scraper, and database will communicate.
+
+Also provide a high-level architecture diagram using Mermaid syntax.
+
+10. Create a milestone checklist.
+
+11. Recommend whether this project should be structured as a monorepo or separate projects, and explain why.
+
+12. Recommend coding standards and project conventions to follow throughout development.
+
+-----------------------------------
+
+Instructions
+
+- Do not invent requirements that are not mentioned in the assignment.
+- If assumptions are necessary, clearly label them as assumptions.
+- Do NOT generate any code, configuration files, or commands.
+- Produce only the project architecture, planning, and implementation roadmap.
+- After completing the planning document, stop and wait for my confirmation.

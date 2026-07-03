@@ -1,0 +1,447 @@
+Create a production-grade deployment configuration for the Udyam Registration Assignment.
+
+### Tech Stack
+
+- Docker
+- Docker Compose
+- Node.js
+- React (Vite)
+- PostgreSQL
+- Prisma ORM
+- Nginx
+- Railway (Backend)
+- Vercel (Frontend)
+
+--------------------------------------------------
+
+### Goal
+
+Containerize and prepare the complete application for production deployment.
+
+The deployment should support
+
+- Frontend
+- Backend
+- PostgreSQL
+
+The deployment configuration should work consistently across
+
+- Development
+- Staging
+- Production
+
+The deployment configuration should integrate with the existing frontend, backend, and database modules without requiring manual code changes.
+
+Do not modify application logic.
+
+Do not rewrite frontend or backend code unless absolutely required for deployment.
+
+Only generate deployment-related configuration.
+
+--------------------------------------------------
+
+### Project Structure
+
+project/
+
+    frontend/
+
+    backend/
+
+    docker/
+
+        nginx/
+
+            nginx.conf
+
+    docker-compose.yml
+
+    Dockerfile.frontend
+
+    Dockerfile.backend
+
+    .dockerignore
+
+    README.md
+
+--------------------------------------------------
+
+### Docker Requirements
+
+Generate
+
+- Dockerfile for frontend
+- Dockerfile for backend
+- docker-compose.yml
+- .dockerignore
+
+Generate Docker Compose configuration compatible with Docker Compose V2.
+
+--------------------------------------------------
+
+### Frontend Container
+
+Use
+
+- Node.js LTS
+- Multi-stage build
+- Vite production build
+- Nginx to serve static files
+
+Expose
+
+Port 80
+
+--------------------------------------------------
+
+### Backend Container
+
+Use
+
+- Node.js LTS
+
+Requirements
+
+- Install dependencies
+- Generate Prisma Client during image build
+- Execute Prisma migrations safely during container startup
+- Start Express server
+
+Expose
+
+Port 5000
+
+--------------------------------------------------
+
+### PostgreSQL
+
+Use official PostgreSQL Docker image.
+
+Persist database using Docker volumes.
+
+Expose
+
+5432
+
+--------------------------------------------------
+
+### Docker Compose
+
+Configure
+
+Frontend
+
+Backend
+
+Database
+
+Networking
+
+Volumes
+
+Environment Variables
+
+Service Dependencies
+
+Health Checks
+
+Restart Policies
+
+--------------------------------------------------
+
+### Environment Variables
+
+Support
+
+Frontend
+
+VITE_API_BASE_URL
+
+Backend
+
+DATABASE_URL
+
+PORT
+
+NODE_ENV
+
+FRONTEND_URL
+
+Generate
+
+.env.example
+
+Do not hardcode secrets.
+
+Do not commit .env files.
+
+Generate only .env.example.
+
+--------------------------------------------------
+
+### Prisma
+
+Ensure deployment automatically
+
+- Generates Prisma Client
+- Executes migrations safely
+- Connects to PostgreSQL
+
+Do not require manual database setup beyond configuring environment variables.
+
+--------------------------------------------------
+
+### Nginx
+
+Configure production-ready Nginx.
+
+Requirements
+
+- SPA routing
+- Static asset caching
+- Compression
+- Security headers
+- Reverse proxy support (if required)
+
+--------------------------------------------------
+
+### Deployment Targets
+
+Generate deployment instructions for
+
+Frontend
+
+- Vercel
+
+Backend
+
+- Railway
+
+Database
+
+- Railway PostgreSQL (preferred)
+- Supabase PostgreSQL (optional)
+
+Do not generate provider-specific code that modifies the application.
+
+--------------------------------------------------
+
+### Production Best Practices
+
+Implement
+
+- Multi-stage Docker builds
+- Small image size
+- Layer caching
+- Non-root containers where practical
+- Production NODE_ENV
+- Secure environment variable handling
+- Graceful shutdown
+- Health checks
+- Restart policies
+
+--------------------------------------------------
+
+### Docker Best Practices
+
+1.
+
+Use official images.
+
+2.
+
+Keep images lightweight.
+
+3.
+
+Avoid unnecessary packages.
+
+4.
+
+Optimize build cache.
+
+5.
+
+Keep secrets outside Dockerfiles.
+
+6.
+
+Never hardcode credentials.
+
+7.
+
+Use .dockerignore.
+
+--------------------------------------------------
+
+### Health Checks
+
+Configure health checks for
+
+Frontend
+
+Backend
+
+Database
+
+Use the existing backend health endpoint.
+
+Health endpoint
+
+GET
+
+/health
+
+Do not create new application endpoints solely for deployment.
+
+--------------------------------------------------
+
+### Networking
+
+Configure Docker Compose networking.
+
+Allow
+
+Frontend
+
+↓
+
+Backend
+
+↓
+
+Database
+
+Expose only the frontend to the public network.
+
+Keep backend and database on the internal Docker network wherever practical.
+
+Prevent unnecessary public exposure of internal services.
+
+--------------------------------------------------
+
+### Logging
+
+Configure Docker logging.
+
+Ensure application logs are available through
+
+docker logs
+
+Use stdout/stderr logging compatible with Docker logging drivers.
+
+Do not suppress runtime errors.
+
+--------------------------------------------------
+
+### Security
+
+Follow production security best practices.
+
+- Read-only containers where practical
+- Least privilege
+- Secure environment variables
+- Proper CORS configuration
+- Secure HTTP headers
+- No secrets inside repository
+
+--------------------------------------------------
+
+### Deliverables
+
+Generate
+
+- Dockerfile.frontend
+- Dockerfile.backend
+- docker-compose.yml
+- nginx.conf
+- .dockerignore
+- .env.example
+- Deployment README
+
+The deployment should work using
+
+docker compose build
+
+docker compose up --build
+
+without requiring manual code modifications.
+
+--------------------------------------------------
+
+### README
+
+Include
+
+- Installation
+- Docker Commands
+- Environment Variables
+- Build Process
+- Container Overview
+- Networking
+- Volumes
+- Health Checks
+- Deployment to Railway
+- Deployment to Vercel
+- Project Structure
+- Troubleshooting
+
+--------------------------------------------------
+
+General Rules
+
+1.
+
+Think like a Senior DevOps Engineer.
+
+2.
+
+Follow production-grade deployment practices.
+
+3.
+
+Generate complete working configuration.
+
+4.
+
+Do not modify frontend or backend business logic.
+
+5.
+
+Do not generate application code.
+
+6.
+
+Do not generate testing code.
+
+7.
+
+Keep Docker images optimized.
+
+8.
+
+Follow Docker and Nginx best practices.
+
+9.
+
+Explain why every deployment file exists.
+
+10.
+
+Explain every important Docker instruction.
+
+11.
+
+Keep the deployment secure, scalable, and production-ready.
+
+12.
+
+Do not invent deployment requirements outside the assignment.
+
+13.
+
+Only generate deployment configuration files.
+
+14.
+
+After completing the deployment module, stop and wait for my confirmation.
