@@ -1,0 +1,169 @@
+{
+  "source": "https://udyamregistration.gov.in/UdyamRegistration.aspx",
+  "scrapedAt": "2026-07-03T09:55:58.214Z",
+  "totalSteps": 2,
+  "steps": [
+    {
+      "step": 1,
+      "title": "Aadhaar & OTP Verification",
+      "description": "Verify identity using Aadhaar number and OTP",
+      "substeps": [
+        {
+          "id": "aadhaar",
+          "title": "Aadhaar Verification"
+        },
+        {
+          "id": "otp",
+          "title": "OTP Verification"
+        }
+      ],
+      "fields": [
+        {
+          "label": "Aadhaar Number",
+          "name": "ctl00$ContentPlaceHolder1$txtadharno",
+          "id": "ctl00_ContentPlaceHolder1_txtadharno",
+          "type": "text",
+          "required": true,
+          "placeholder": "Your Aadhaar No",
+          "validation": {
+            "required": true,
+            "maxlength": 12
+          },
+          "autocomplete": "Off"
+        },
+        {
+          "label": "Name of Entrepreneur",
+          "name": "ctl00$ContentPlaceHolder1$txtownername",
+          "id": "ctl00_ContentPlaceHolder1_txtownername",
+          "type": "text",
+          "required": true,
+          "placeholder": "Name as per Aadhaar",
+          "validation": {
+            "required": true,
+            "maxlength": 100
+          },
+          "autocomplete": "Off"
+        },
+        {
+          "label": "I, the holder of the above Aadhaar, hereby give my consent to Ministry of MSME, Government of India, for using my Aadhaa...",
+          "name": "ctl00$ContentPlaceHolder1$chkDecarationA",
+          "id": "ctl00_ContentPlaceHolder1_chkDecarationA",
+          "type": "checkbox",
+          "required": true,
+          "placeholder": null,
+          "validation": {
+            "required": true
+          },
+          "defaultValue": "on"
+        }
+      ],
+      "buttons": [
+        {
+          "label": "Validate & Generate OTP",
+          "name": "ctl00$ContentPlaceHolder1$btnValidateAadhaar",
+          "id": "ctl00_ContentPlaceHolder1_btnValidateAadhaar",
+          "type": "submit",
+          "disabled": false
+        }
+      ],
+      "scraped": true
+    },
+    {
+      "step": 2,
+      "title": "PAN Verification",
+      "description": "Verify PAN and select organisation type. These fields appear after OTP verification.",
+      "fields": [
+        {
+          "label": "PAN Number",
+          "name": "ctl00$ContentPlaceHolder1$txtPan",
+          "id": "ctl00_ContentPlaceHolder1_txtPan",
+          "type": "text",
+          "required": true,
+          "placeholder": null,
+          "validation": {
+            "required": true,
+            "maxlength": 10,
+            "pattern": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
+          },
+          "scraped": false,
+          "note": "Field referenced in page scripts but not visible in initial DOM (behind OTP gate)"
+        },
+        {
+          "label": "Type of Organisation",
+          "name": "ctl00$ContentPlaceHolder1$ddlTypeofOrg",
+          "id": "ctl00_ContentPlaceHolder1_ddlTypeofOrg",
+          "type": "select",
+          "required": true,
+          "placeholder": null,
+          "validation": {
+            "required": true
+          },
+          "options": [
+            {
+              "value": "",
+              "text": "--Select--"
+            },
+            {
+              "value": "1",
+              "text": "Proprietorship"
+            },
+            {
+              "value": "2",
+              "text": "Hindu Undivided Family (HUF)"
+            },
+            {
+              "value": "3",
+              "text": "Partnership"
+            },
+            {
+              "value": "4",
+              "text": "Co-operative Society"
+            },
+            {
+              "value": "5",
+              "text": "Society"
+            },
+            {
+              "value": "6",
+              "text": "Trust"
+            },
+            {
+              "value": "7",
+              "text": "Private Limited Company"
+            },
+            {
+              "value": "8",
+              "text": "Public Limited Company"
+            },
+            {
+              "value": "9",
+              "text": "Limited Liability Partnership"
+            },
+            {
+              "value": "10",
+              "text": "Self Help Group (SHG)"
+            },
+            {
+              "value": "11",
+              "text": "Others"
+            }
+          ],
+          "scraped": false,
+          "note": "Field referenced in page scripts but not visible in initial DOM (behind OTP gate)"
+        }
+      ],
+      "buttons": [
+        {
+          "label": "Validate PAN",
+          "name": null,
+          "id": null,
+          "type": "submit",
+          "disabled": false,
+          "scraped": false,
+          "note": "Expected button based on portal flow (behind OTP gate)"
+        }
+      ],
+      "scraped": false
+    }
+  ]
+}
