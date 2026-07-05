@@ -1,0 +1,28 @@
+{
+  "name": "udyam-scraper",
+  "version": "1.0.0",
+  "description": "Production-grade web scraper for extracting UI structure from the Udyam Registration Portal (Steps 1 & 2).",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "scrape": "node src/index.js",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "udyam",
+    "scraper",
+    "puppeteer",
+    "registration"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "puppeteer": "^23.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "prettier": "^3.3.0"
+  }
+}
